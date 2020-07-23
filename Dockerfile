@@ -20,4 +20,4 @@ ADD Gemfile.lock /lobsters/Gemfile.lock
 RUN apt-get update && apt-get install nodejs -y
 RUN bundle install
 ADD . /lobsters
-ENTRYPOINT ["/lobsters/bin/rails", "server"]
+ENTRYPOINT ["/lobsters/bin/rails", "server", "-b", "0.0.0.0"]
