@@ -1,8 +1,9 @@
-apiVersion: extensions/v1beta1
+apiVersion: batch/v1
 kind: Job
 metadata:
   name: lobsters-db-seed
 spec:
+  manualSelector: true
   selector:
     matchLabels:
       task: db-seed
@@ -14,7 +15,7 @@ spec:
     spec:
       containers:
         - name: lobsters
-          image: kelseyhightower/lobsters:testing
+          image: meyersh/lobsters:latest
           imagePullPolicy: Always
           env:
             - name: DATABASE_URL
@@ -23,6 +24,6 @@ spec:
                   name: lobsters
                   key: database-url
           command:
-            - "/usr/local/bundle/bin/rake"
+            - "/usr/local/bin/rake"
             - "db:seed"
       restartPolicy: Never

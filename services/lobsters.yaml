@@ -1,14 +1,12 @@
+---
 apiVersion: v1
 kind: Service
 metadata:
-  labels:
-    app: lobsters
-  name: lobsters
+  name: lobsters-www
 spec:
+  selector:
+    app: lobsters-www
   ports:
   - port: 3000
     protocol: TCP
-    targetPort: 3000
-  selector:
-    app: lobsters
-  type: LoadBalancer
+    name: lobsters

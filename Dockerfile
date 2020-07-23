@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-FROM ruby:2.3.1
+FROM ruby:2.7
 RUN mkdir /lobsters
 WORKDIR /lobsters
 ADD Gemfile /lobsters/Gemfile
